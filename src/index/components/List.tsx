@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+
 // import styled from '@emotion/styled'
 
 interface Item {
@@ -13,9 +14,9 @@ interface ListProps {
 }
 
 const List = React.memo((props: ListProps) => {
-    const { arr, onChangeMode } = props;
+    const {arr, onChangeMode} = props;
     const itemClick = (id: Number) => {
-        if( onChangeMode ) {
+        if (onChangeMode) {
             return onChangeMode(id);
         }
     }
@@ -23,7 +24,8 @@ const List = React.memo((props: ListProps) => {
         <nav>
             <ol>
                 {arr ? arr.map((a, i) =>
-                    <li key={a.id}><a href={"/"} onClick={() => itemClick(a.id)} >{a.title}</a></li> ) : <li><a href={"/"}>html</a></li>}
+                        <li key={a.id}><a href={"/"} onClick={() => itemClick(a.id)}>{a.title}</a></li>) :
+                    <li><a href={"/"}>html</a></li>}
             </ol>
         </nav>
     );

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+
 // import styled from '@emotion/styled'
 
 interface HeaderProps {
@@ -7,7 +8,7 @@ interface HeaderProps {
 }
 
 const Header = React.memo((props: HeaderProps) => {
-    const { title  = "HTML", onClick } = props;
+    const {title = "HTML", onClick} = props;
     const onClickEvent = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         event.preventDefault();
         if (onClick) {
