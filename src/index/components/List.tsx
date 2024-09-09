@@ -8,16 +8,22 @@ interface Item {
 }
 
 interface ListProps {
-    arr?: Item[]
+    arr?: Item[];
+    onChangeMode: (id: Number) => void;
 }
 
 const List = React.memo((props: ListProps) => {
-    const { arr } = props;
+    const { arr, onChangeMode } = props;
+    const itemClick = (id: Number) => {
+        if( onChangeMode ) {
+            return onChangeMode(id);
+        }
+    }
     return (
         <nav>
             <ol>
                 {arr ? arr.map((a, i) =>
-                    <li key={a.id}><a href={"/"}>{a.title}</a></li> ) : <li><a href={"/"}>html</a></li>}
+                    <li key={a.id}><a href={"/"} onClick={() => itemClick(a.id)} >{a.title}</a></li> ) : <li><a href={"/"}>html</a></li>}
             </ol>
         </nav>
     );

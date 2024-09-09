@@ -15,12 +15,20 @@ function App() {
         setPrimarys(!primarys);
     };
 
+    const headerClickEvent = () => {
+        alert('123');
+    };
+
+    const idClickEvent = (id: Number) => {
+        alert(id);
+    };
+
   return (
     <div className="App">
       <Button label={`12345 => ${count}`} onClick={onClickEvent} primary={primarys}/>
-        <Header title="React"/>
+        <Header title="React" onClick={headerClickEvent}/>
         <Header/>
-        <List arr={listArticles}/>
+        <List arr={listArticles} onChangeMode={idClickEvent}/>
         <Article title="React" body={"is Good!!!"}/>
         <Article/>
     </div>

@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 // import styled from '@emotion/styled'
 
 interface ArticleProps {
-    title?: string,
-    body?: string,
+    title?: string;
+    body?: string;
 }
 
 const Article = React.memo((props: ArticleProps) => {
