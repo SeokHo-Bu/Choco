@@ -10,21 +10,22 @@ interface Item {
 
 interface ListProps {
     arr?: Item[];
-    onChangeMode: (id: Number) => void;
+    onChangeMode: (id: Number, title: string | undefined, body: string | undefined) => void;
 }
 
 const List = React.memo((props: ListProps) => {
     const {arr, onChangeMode} = props;
-    const itemClick = (id: Number) => {
+    const itemClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, id: Number, title?: string, body?: string) => {
+        event.preventDefault();
         if (onChangeMode) {
-            return onChangeMode(id);
+            return onChangeMode(id, title, body);
         }
     }
     return (
         <nav>
             <ol>
                 {arr ? arr.map((a, i) =>
-                        <li key={a.id}><a href={"/"} onClick={() => itemClick(a.id)}>{a.title}</a></li>) :
+                        <li key={a.id}><a href={"/"} onClick={(event) => itemClick(event, a?.id, a?.title, a?.body)}>{a.title}</a></li>) :
                     <li><a href={"/"}>html</a></li>}
             </ol>
         </nav>
