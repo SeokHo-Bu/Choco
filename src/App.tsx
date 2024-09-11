@@ -16,7 +16,7 @@ function App() {
     };
 
     const headerClickEvent = () => {
-        alert('123');
+        alert('1234');
     };
 
     const idClickEvent = (id: Number) => {
