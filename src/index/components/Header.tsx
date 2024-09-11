@@ -10,7 +10,7 @@ interface HeaderProps {
 const Header = React.memo((props: HeaderProps) => {
     const {title = "HTML", onClick} = props;
     const onClickEvent = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-        event.preventDefault();
+        // event.preventDefault();
         if (onClick) {
             onClick();
         }
@@ -19,7 +19,7 @@ const Header = React.memo((props: HeaderProps) => {
     return (
         <header>
             <h1>
-                <a href={"/"} onClick={(event) => onClickEvent(event)}>{title}</a>
+                <a href={"/create"} onClick={(event) => onClickEvent(event)}>{title}</a>
             </h1>
         </header>
     );
