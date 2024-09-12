@@ -8,6 +8,7 @@ import {listArticles} from "./mocks/mockData";
 import Create from "./index/components/Create";
 
 function App() {
+    const [listArr, setListArr] = useState(listArticles);
     const [count, setCount] = useState(0);
     const [primarys, setPrimarys] = useState(false);
     const [title, setTitle] = useState('React');
@@ -32,14 +33,18 @@ function App() {
         }
     };
 
+    const addList = (arr: { id: number; title: string; body: string; }) => {
+        setListArr([...listArr, arr]);
+    }
+
     return (
         <div className="App" style={{padding: 20}}>
             <Button label={`12345 => ${count}`} onClick={onClickEvent} primary={primarys} />
             <Header title="React" onClick={headerClickEvent} />
             <Header />
-            <List arr={listArticles} onChangeMode={idClickEvent} />
+            <List arr={listArr} onChangeMode={idClickEvent} />
             <Article title={title} body={body} />
-            <Create />
+            <Create createClick={addList} />
         </div>
     );
 }
