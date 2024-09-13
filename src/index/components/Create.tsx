@@ -25,6 +25,7 @@ const Create = React.memo((props: CreateProps) => {
         setBody('');
     };
 
+
     const changeTitle = (titleEvent?: React.ChangeEvent<HTMLInputElement>) => {
         if (titleEvent) {
             setTitle(titleEvent.target.value);

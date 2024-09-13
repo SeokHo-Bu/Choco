@@ -10,12 +10,12 @@ interface Item {
 
 interface ListProps {
     arr?: Item[];
-    onChangeMode: (id: Number, title: string | undefined, body: string | undefined) => void;
+    onChangeMode: (id: number, title: string | undefined, body: string | undefined) => void;
 }
 
 const List = React.memo((props: ListProps) => {
     const {arr, onChangeMode} = props;
-    const itemClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, id: Number, title?: string, body?: string) => {
+    const itemClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, id: number, title?: string, body?: string) => {
         event.preventDefault();
         if (onChangeMode) {
             return onChangeMode(id, title, body);
